@@ -39,24 +39,27 @@ public class TankStart extends Frame {
 
     //创建一个监听类 监听键盘的按下和释放
     class MyTankListener extends KeyAdapter {
+
+        boolean bl = false;
+        boolean br = false;
+        boolean bu = false;
+        boolean bd = false;
         //键盘按下时事件
         @Override
         public void keyPressed(KeyEvent e) {
             int key = e.getKeyCode();
             switch (key) {
                 case KeyEvent.VK_LEFT:
-//                    System.out.println(x--);
-                    x--;
+                    bl = true;
                     break;
                 case KeyEvent.VK_RIGHT:
-                    x++;
+                    br =true;
                     break;
                 case KeyEvent.VK_UP:
-//                    System.out.println(y--);
-                    y--;
+                    bu = true;
                     break;
                 case KeyEvent.VK_DOWN:
-                    y++;
+                    bd = true;
                     break;
                 default:
                     break;
@@ -67,8 +70,23 @@ public class TankStart extends Frame {
         //键盘放开时事件
         @Override
         public void keyReleased(KeyEvent e) {
-//            super.keyReleased(e);
-        }
+            int key = e.getKeyCode();
+            switch (key) {
+                case KeyEvent.VK_LEFT:
+                    bl = false;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    br =false;
+                    break;
+                case KeyEvent.VK_UP:
+                    bu = false;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    bd = false;
+                    break;
+                default:
+                    break;
+            }        }
     }
 
 }
